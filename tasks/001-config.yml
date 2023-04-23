@@ -15,3 +15,13 @@
     group: root
     mode: 0644
   notify: restart uptime-kuma
+
+
+- name: Copy Uptime Kuma Dockerfile
+  template:
+    src: Dockerfile.j2
+    dest: "{{ uptime_kuma_directory }}/Dockerfile"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart uptime-kuma

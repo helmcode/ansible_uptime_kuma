@@ -1,0 +1,7 @@
+FROM louislam/uptime-kuma:1
+
+WORKDIR /app/data
+
+USER root
+
+CMD [ "/usr/bin/tail", "-f", "/dev/null" ]
