@@ -1,4 +1,3 @@
 ---
 - name: restart uptime-kuma
-  command:
-    cmd: ["cd", "{{ uptime_kuma_directory }}", "&&", "docker", "compose", "up", "-d", "--build"]
+  command: chdir="{{ uptime_kuma_directory }}" docker compose up -d --build
