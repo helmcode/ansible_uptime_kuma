@@ -1,0 +1,4 @@
+---
+- include_tasks: 001-config.yml
+  tags:
+    - uptime_kuma_config

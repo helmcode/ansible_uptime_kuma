@@ -1,0 +1,17 @@
+---
+- name: Create Uptime Kuma Directory
+  file:
+    path: "{{ uptime_kuma_directory }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Copy Uptime Kuma Docker Compose
+  template:
+    src: docker-compose.yml.j2
+    dest: "{{ uptime_kuma_directory }}/docker-compose.yml"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart uptime-kuma

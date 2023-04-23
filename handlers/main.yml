@@ -1,0 +1,14 @@
+---
+- name: restart uptime-kuma
+  docker_compose:
+    project_src: "{{ uptime_kuma_directory }}/docker-compose.yml"
+    build: yes
+    restarted: true
+  register: output
+
+- debug:
+    var: output
+
+- assert:
+    that:
+      - "output.services.uptime-kuma.state.running"
